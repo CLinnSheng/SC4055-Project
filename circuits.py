@@ -19,8 +19,26 @@ def qaoa_circuit(gamma, beta, n, edges):
     return qc
 
 
+def xqaoa_circuit(gamma, betas, alphas, n, edges):
+    qc = QuantumCircuit(n)
+
+    # Part 1
+    qc.h(range(n))
+
+    # Part 2 (Cost): Each edge has its own gamma
+    for (u, v), g in zip(edges, gamma):
+        qc.rzz(-g, u, v)
+
+    # Part 3 (Mixer): Each qubit has its own X rotation then its own Y rotation
+    for j in range(n):
+        qc.rx(2 * betas[j], j)
+        qc.ry(2 * alphas[j], j)
+
+    return qc
+
+
 def cut_values(n, edges):
-    """Scores of every assignment, how many interfering paris are on different channels"""
+    """Scores of every assignment, how many interfering pairs are on different channels"""
     values = np.zeros(2**n)
     for index in range(2**n):
         for u, v in edges:
@@ -33,7 +51,8 @@ def cut_values(n, edges):
 
     return values
 
-def expected_scores(circuit, values):
+
+def expected_score(circuit, values):
     """Average score of circuit"""
     probs = Statevector(circuit).probabilities()
-    return float(probs * values)
+    return float(probs @ values)
