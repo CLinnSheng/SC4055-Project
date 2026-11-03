@@ -7,11 +7,13 @@ References
     Approximate Optimisation", arXiv:2302.04479v2 (2024).
 """
 
-from typing import Literal
+import time
+from typing import Literal, TypedDict
 
 import numpy as np
 from numpy.typing import NDArray
 from qiskit import QuantumCircuit
+from scipy.optimize import minimize
 
 from circuits import (
     Angles,
@@ -86,3 +88,65 @@ class Objective:
 
         # Negative because SciPy minimises, and we want to maximise the score
         return -s
+
+
+def random_start(
+    method: Method, n: int, edges: Edges, rng: np.random.Generator
+) -> NDArray[np.float64]:
+    """Random starting settings: gammas in [0, 2pi), betas and alphas in [0, pi).
+    These ranges cover every distinct circuit, [1] footnote 6.
+    Same order as build_circuit: [gammas, betas, alphas]."""
+    if method == "qaoa":
+        return np.array([rng.uniform(0, 2 * np.pi), rng.uniform(0, np.pi)])
+
+    m = len(edges)
+    return np.concatenate(
+        [
+            rng.uniform(0, 2 * np.pi, m),  # one gamma per edge
+            rng.uniform(0, np.pi, n),  # one beta per transmitter
+            rng.uniform(0, np.pi, n),  # one alpha per transmitter
+        ]
+    )
+
+
+class TrainResult(TypedDict):
+    """Everything task 4 needs to save for one training run."""
+
+    method: Method
+    seed: int
+    initial_settings: list[float]
+    final_settings: list[float]
+    expected_score: float
+    n_evaluations: int
+    runtime_s: float
+    history: list[float]
+
+
+def train(
+    method: Method, n: int, edges: Edges, max_evaluations: int, seed: int
+) -> TrainResult:
+    """Train one method from one random start. Using COBYLA method and
+    same evaluation limit for both methods, so the comparison is fair."""
+    rng = np.random.default_rng(seed)
+    start = random_start(method, n, edges, rng)
+    objective = Objective(method, n, edges)
+
+    t0 = time.perf_counter()
+    result = minimize(
+        objective,
+        start,
+        method="COBYLA",
+        options={"maxiter": max_evaluations},
+    )
+    runtime = time.perf_counter() - t0
+
+    return {
+        "method": method,
+        "seed": seed,
+        "initial_settings": start.tolist(),
+        "final_settings": result.x.tolist(),
+        "expected_score": objective.score(result.x),
+        "n_evaluations": objective.n_evaluations,
+        "runtime_s": runtime,
+        "history": objective.history,
+    }
