@@ -27,6 +27,7 @@ Angles = Sequence[float] | NDArray[np.float64]
 
 
 def qaoa_circuit(gamma: float, beta: float, n: int, edges: Edges) -> QuantumCircuit:
+    """One-layer standard QAOA, [1] Sec. II B, Eqs. (4)-(8), Fig. 1."""
     qc = QuantumCircuit(n)
 
     # Part 1
@@ -45,6 +46,8 @@ def qaoa_circuit(gamma: float, beta: float, n: int, edges: Edges) -> QuantumCirc
 def xqaoa_circuit(
     gammas: Angles, betas: Angles, alphas: Angles, n: int, edges: Edges
 ) -> QuantumCircuit:
+    """One-layer XQAOA with the full XY mixer, [1] Sec. III,
+    Eqs. (15), (19)-(21), Fig. 1c."""
     if len(gammas) != len(edges) or len(betas) != n or len(alphas) != n:
         raise ValueError(
             f"expected {len(edges)} gammas and {n} betas/alphas, "
