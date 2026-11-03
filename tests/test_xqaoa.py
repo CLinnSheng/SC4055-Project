@@ -62,3 +62,10 @@ def test_xqaoa_reduces_to_qaoa():
     )
 
     assert Statevector(qaoa).equiv(Statevector(xqaoa))
+
+
+def test_xqaoa_rejects_wrong_number_of_gammas():
+    with pytest.raises(ValueError):
+        xqaoa_circuit(
+            ZERO_GAMMAS[:-1], ZERO_BETAS, ZERO_ALPHAS, N_QUBITS, TRIANGLE_EDGES
+        )
