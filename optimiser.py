@@ -31,7 +31,7 @@ Settings = Angles
 def num_settings(method: Method, n: int, edges: Edges) -> int:
     """
     QAOA: 2 Settings
-    XQAOA (XY Mixer): m + 2n settings, refer from [1]
+    XQAOA (XY Mixer): m + 2n settings, [1] Table I
     """
     if method == "qaoa":
         return 2

@@ -72,7 +72,8 @@ def xqaoa_circuit(
 
 
 def cut_values(n: int, edges: Edges) -> NDArray[np.float64]:
-    """Scores of every assignment, how many interfering pairs are on different channels"""
+    """Scores of every assignment: how many interfering pairs are on different
+    channels, [1] Eqs. (2) and (12). Bit i of the index is transmitter i."""
     values = np.zeros(2**n)
     for index in range(2**n):
         for u, v in edges:
@@ -87,6 +88,6 @@ def cut_values(n: int, edges: Edges) -> NDArray[np.float64]:
 
 
 def expected_score(circuit: QuantumCircuit, values: NDArray[np.float64]) -> float:
-    """Average score of circuit"""
+    """Average score of the circuit, [1] Eq. (9)."""
     probs = Statevector(circuit).probabilities()
     return float(probs @ values)
