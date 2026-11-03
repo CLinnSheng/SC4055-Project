@@ -1,3 +1,20 @@
+"""
+One-layer QAOA and XQAOA circuits for MaxCut.
+
+References
+----------
+[1] V. Vijendran, A. Das, D. E. Koh, S. M. Assad and P. K. Lam,
+    "An Expressive Ansatz for Low-Depth Quantum Approximate Optimisation",
+    arXiv:2302.04479v2 (2024). https://arxiv.org/abs/2302.04479
+[2] Qiskit gate definitions (RZZGate, RXGate, RYGate):
+    https://docs.quantum.ibm.com/api/qiskit/circuit_library
+
+Angle convention: [1] writes gates as exp(-i*angle*operator), while Qiskit
+uses half-angles, e.g. RX(theta) = exp(-i*theta/2*X) [2]. So the paper's
+exp(-i*beta*X) is rx(2*beta), and the paper's cost gate
+exp(-i*gamma*(1 - Z_u Z_v)/2) is rzz(-gamma), up to a global phase.
+"""
+
 import numpy as np
 from qiskit import QuantumCircuit
 from qiskit.quantum_info import Statevector
