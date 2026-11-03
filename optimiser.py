@@ -7,18 +7,23 @@ References
     Approximate Optimisation", arXiv:2302.04479v2 (2024).
 """
 
-from collections.abc import Sequence
 from typing import Literal
 
 import numpy as np
 from numpy.typing import NDArray
 from qiskit import QuantumCircuit
 
-from circuits import cut_values, expected_score, qaoa_circuit, xqaoa_circuit
+from circuits import (
+    Angles,
+    Edges,
+    cut_values,
+    expected_score,
+    qaoa_circuit,
+    xqaoa_circuit,
+)
 
 Method = Literal["qaoa", "xqaoa"]
-Edges = list[tuple[int, int]]
-Settings = Sequence[float] | NDArray[np.float64]
+Settings = Angles
 
 
 def num_settings(method: Method, n: int, edges: Edges) -> int:
@@ -37,6 +42,12 @@ def num_settings(method: Method, n: int, edges: Edges) -> int:
 def build_circuit(
     method: Method, settings: Settings, n: int, edges: Edges
 ) -> QuantumCircuit:
+    expected_count = num_settings(method, n, edges)
+    if len(settings) != expected_count:
+        raise ValueError(
+            f"{method} expects {expected_count} settings, got {len(settings)}"
+        )
+
     if method == "qaoa":
         gamma, beta = settings
         return qaoa_circuit(gamma, beta, n, edges)

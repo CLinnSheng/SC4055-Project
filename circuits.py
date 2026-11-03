@@ -15,12 +15,18 @@ exp(-i*beta*X) is rx(2*beta), and the paper's cost gate
 exp(-i*gamma*(1 - Z_u Z_v)/2) is rzz(-gamma), up to a global phase.
 """
 
+from collections.abc import Sequence
+
 import numpy as np
+from numpy.typing import NDArray
 from qiskit import QuantumCircuit
 from qiskit.quantum_info import Statevector
 
+Edges = Sequence[tuple[int, int]]
+Angles = Sequence[float] | NDArray[np.float64]
 
-def qaoa_circuit(gamma, beta, n, edges):
+
+def qaoa_circuit(gamma: float, beta: float, n: int, edges: Edges) -> QuantumCircuit:
     qc = QuantumCircuit(n)
 
     # Part 1
@@ -36,14 +42,22 @@ def qaoa_circuit(gamma, beta, n, edges):
     return qc
 
 
-def xqaoa_circuit(gamma, betas, alphas, n, edges):
+def xqaoa_circuit(
+    gammas: Angles, betas: Angles, alphas: Angles, n: int, edges: Edges
+) -> QuantumCircuit:
+    if len(gammas) != len(edges) or len(betas) != n or len(alphas) != n:
+        raise ValueError(
+            f"expected {len(edges)} gammas and {n} betas/alphas, "
+            f"got {len(gammas)}, {len(betas)}, {len(alphas)}"
+        )
+
     qc = QuantumCircuit(n)
 
     # Part 1
     qc.h(range(n))
 
     # Part 2 (Cost): Each edge has its own gamma
-    for (u, v), g in zip(edges, gamma):
+    for (u, v), g in zip(edges, gammas):
         qc.rzz(-g, u, v)
 
     # Part 3 (Mixer): Each qubit has its own X rotation then its own Y rotation
@@ -54,7 +68,7 @@ def xqaoa_circuit(gamma, betas, alphas, n, edges):
     return qc
 
 
-def cut_values(n, edges):
+def cut_values(n: int, edges: Edges) -> NDArray[np.float64]:
     """Scores of every assignment, how many interfering pairs are on different channels"""
     values = np.zeros(2**n)
     for index in range(2**n):
@@ -69,7 +83,7 @@ def cut_values(n, edges):
     return values
 
 
-def expected_score(circuit, values):
+def expected_score(circuit: QuantumCircuit, values: NDArray[np.float64]) -> float:
     """Average score of circuit"""
     probs = Statevector(circuit).probabilities()
     return float(probs @ values)
