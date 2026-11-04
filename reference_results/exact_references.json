@@ -1,0 +1,814 @@
+{
+  "single_edge": {
+    "n_nodes": 2,
+    "n_edges": 1,
+    "edges": [
+      [
+        0,
+        1
+      ]
+    ],
+    "assignments_checked": 4,
+    "optimal_score": 1,
+    "optimal_assignments": [
+      "01",
+      "10"
+    ],
+    "n_optimal_assignments": 2,
+    "random_expected_score": 0.5,
+    "all_scores": [
+      {
+        "assignment": "00",
+        "score": 0
+      },
+      {
+        "assignment": "01",
+        "score": 1
+      },
+      {
+        "assignment": "10",
+        "score": 1
+      },
+      {
+        "assignment": "11",
+        "score": 0
+      }
+    ]
+  },
+  "line": {
+    "n_nodes": 3,
+    "n_edges": 2,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "assignments_checked": 8,
+    "optimal_score": 2,
+    "optimal_assignments": [
+      "010",
+      "101"
+    ],
+    "n_optimal_assignments": 2,
+    "random_expected_score": 1.0,
+    "all_scores": [
+      {
+        "assignment": "000",
+        "score": 0
+      },
+      {
+        "assignment": "001",
+        "score": 1
+      },
+      {
+        "assignment": "010",
+        "score": 2
+      },
+      {
+        "assignment": "011",
+        "score": 1
+      },
+      {
+        "assignment": "100",
+        "score": 1
+      },
+      {
+        "assignment": "101",
+        "score": 2
+      },
+      {
+        "assignment": "110",
+        "score": 1
+      },
+      {
+        "assignment": "111",
+        "score": 0
+      }
+    ]
+  },
+  "triangle": {
+    "n_nodes": 3,
+    "n_edges": 3,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "assignments_checked": 8,
+    "optimal_score": 2,
+    "optimal_assignments": [
+      "001",
+      "010",
+      "011",
+      "100",
+      "101",
+      "110"
+    ],
+    "n_optimal_assignments": 6,
+    "random_expected_score": 1.5,
+    "all_scores": [
+      {
+        "assignment": "000",
+        "score": 0
+      },
+      {
+        "assignment": "001",
+        "score": 2
+      },
+      {
+        "assignment": "010",
+        "score": 2
+      },
+      {
+        "assignment": "011",
+        "score": 2
+      },
+      {
+        "assignment": "100",
+        "score": 2
+      },
+      {
+        "assignment": "101",
+        "score": 2
+      },
+      {
+        "assignment": "110",
+        "score": 2
+      },
+      {
+        "assignment": "111",
+        "score": 0
+      }
+    ]
+  },
+  "star": {
+    "n_nodes": 5,
+    "n_edges": 4,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ]
+    ],
+    "assignments_checked": 32,
+    "optimal_score": 4,
+    "optimal_assignments": [
+      "01111",
+      "10000"
+    ],
+    "n_optimal_assignments": 2,
+    "random_expected_score": 2.0,
+    "all_scores": [
+      {
+        "assignment": "00000",
+        "score": 0
+      },
+      {
+        "assignment": "00001",
+        "score": 1
+      },
+      {
+        "assignment": "00010",
+        "score": 1
+      },
+      {
+        "assignment": "00011",
+        "score": 2
+      },
+      {
+        "assignment": "00100",
+        "score": 1
+      },
+      {
+        "assignment": "00101",
+        "score": 2
+      },
+      {
+        "assignment": "00110",
+        "score": 2
+      },
+      {
+        "assignment": "00111",
+        "score": 3
+      },
+      {
+        "assignment": "01000",
+        "score": 1
+      },
+      {
+        "assignment": "01001",
+        "score": 2
+      },
+      {
+        "assignment": "01010",
+        "score": 2
+      },
+      {
+        "assignment": "01011",
+        "score": 3
+      },
+      {
+        "assignment": "01100",
+        "score": 2
+      },
+      {
+        "assignment": "01101",
+        "score": 3
+      },
+      {
+        "assignment": "01110",
+        "score": 3
+      },
+      {
+        "assignment": "01111",
+        "score": 4
+      },
+      {
+        "assignment": "10000",
+        "score": 4
+      },
+      {
+        "assignment": "10001",
+        "score": 3
+      },
+      {
+        "assignment": "10010",
+        "score": 3
+      },
+      {
+        "assignment": "10011",
+        "score": 2
+      },
+      {
+        "assignment": "10100",
+        "score": 3
+      },
+      {
+        "assignment": "10101",
+        "score": 2
+      },
+      {
+        "assignment": "10110",
+        "score": 2
+      },
+      {
+        "assignment": "10111",
+        "score": 1
+      },
+      {
+        "assignment": "11000",
+        "score": 3
+      },
+      {
+        "assignment": "11001",
+        "score": 2
+      },
+      {
+        "assignment": "11010",
+        "score": 2
+      },
+      {
+        "assignment": "11011",
+        "score": 1
+      },
+      {
+        "assignment": "11100",
+        "score": 2
+      },
+      {
+        "assignment": "11101",
+        "score": 1
+      },
+      {
+        "assignment": "11110",
+        "score": 1
+      },
+      {
+        "assignment": "11111",
+        "score": 0
+      }
+    ]
+  },
+  "two_triangles": {
+    "n_nodes": 5,
+    "n_edges": 6,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        4
+      ]
+    ],
+    "assignments_checked": 32,
+    "optimal_score": 4,
+    "optimal_assignments": [
+      "00100",
+      "00101",
+      "00110",
+      "01001",
+      "01010",
+      "01011",
+      "01100",
+      "01101",
+      "01110",
+      "10001",
+      "10010",
+      "10011",
+      "10100",
+      "10101",
+      "10110",
+      "11001",
+      "11010",
+      "11011"
+    ],
+    "n_optimal_assignments": 18,
+    "random_expected_score": 3.0,
+    "all_scores": [
+      {
+        "assignment": "00000",
+        "score": 0
+      },
+      {
+        "assignment": "00001",
+        "score": 2
+      },
+      {
+        "assignment": "00010",
+        "score": 2
+      },
+      {
+        "assignment": "00011",
+        "score": 2
+      },
+      {
+        "assignment": "00100",
+        "score": 4
+      },
+      {
+        "assignment": "00101",
+        "score": 4
+      },
+      {
+        "assignment": "00110",
+        "score": 4
+      },
+      {
+        "assignment": "00111",
+        "score": 2
+      },
+      {
+        "assignment": "01000",
+        "score": 2
+      },
+      {
+        "assignment": "01001",
+        "score": 4
+      },
+      {
+        "assignment": "01010",
+        "score": 4
+      },
+      {
+        "assignment": "01011",
+        "score": 4
+      },
+      {
+        "assignment": "01100",
+        "score": 4
+      },
+      {
+        "assignment": "01101",
+        "score": 4
+      },
+      {
+        "assignment": "01110",
+        "score": 4
+      },
+      {
+        "assignment": "01111",
+        "score": 2
+      },
+      {
+        "assignment": "10000",
+        "score": 2
+      },
+      {
+        "assignment": "10001",
+        "score": 4
+      },
+      {
+        "assignment": "10010",
+        "score": 4
+      },
+      {
+        "assignment": "10011",
+        "score": 4
+      },
+      {
+        "assignment": "10100",
+        "score": 4
+      },
+      {
+        "assignment": "10101",
+        "score": 4
+      },
+      {
+        "assignment": "10110",
+        "score": 4
+      },
+      {
+        "assignment": "10111",
+        "score": 2
+      },
+      {
+        "assignment": "11000",
+        "score": 2
+      },
+      {
+        "assignment": "11001",
+        "score": 4
+      },
+      {
+        "assignment": "11010",
+        "score": 4
+      },
+      {
+        "assignment": "11011",
+        "score": 4
+      },
+      {
+        "assignment": "11100",
+        "score": 2
+      },
+      {
+        "assignment": "11101",
+        "score": 2
+      },
+      {
+        "assignment": "11110",
+        "score": 2
+      },
+      {
+        "assignment": "11111",
+        "score": 0
+      }
+    ]
+  },
+  "prism": {
+    "n_nodes": 6,
+    "n_edges": 9,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ]
+    ],
+    "assignments_checked": 64,
+    "optimal_score": 7,
+    "optimal_assignments": [
+      "001110",
+      "010101",
+      "011100",
+      "100011",
+      "101010",
+      "110001"
+    ],
+    "n_optimal_assignments": 6,
+    "random_expected_score": 4.5,
+    "all_scores": [
+      {
+        "assignment": "000000",
+        "score": 0
+      },
+      {
+        "assignment": "000001",
+        "score": 3
+      },
+      {
+        "assignment": "000010",
+        "score": 3
+      },
+      {
+        "assignment": "000011",
+        "score": 4
+      },
+      {
+        "assignment": "000100",
+        "score": 3
+      },
+      {
+        "assignment": "000101",
+        "score": 4
+      },
+      {
+        "assignment": "000110",
+        "score": 4
+      },
+      {
+        "assignment": "000111",
+        "score": 3
+      },
+      {
+        "assignment": "001000",
+        "score": 3
+      },
+      {
+        "assignment": "001001",
+        "score": 4
+      },
+      {
+        "assignment": "001010",
+        "score": 6
+      },
+      {
+        "assignment": "001011",
+        "score": 5
+      },
+      {
+        "assignment": "001100",
+        "score": 6
+      },
+      {
+        "assignment": "001101",
+        "score": 5
+      },
+      {
+        "assignment": "001110",
+        "score": 7
+      },
+      {
+        "assignment": "001111",
+        "score": 4
+      },
+      {
+        "assignment": "010000",
+        "score": 3
+      },
+      {
+        "assignment": "010001",
+        "score": 6
+      },
+      {
+        "assignment": "010010",
+        "score": 4
+      },
+      {
+        "assignment": "010011",
+        "score": 5
+      },
+      {
+        "assignment": "010100",
+        "score": 6
+      },
+      {
+        "assignment": "010101",
+        "score": 7
+      },
+      {
+        "assignment": "010110",
+        "score": 5
+      },
+      {
+        "assignment": "010111",
+        "score": 4
+      },
+      {
+        "assignment": "011000",
+        "score": 4
+      },
+      {
+        "assignment": "011001",
+        "score": 5
+      },
+      {
+        "assignment": "011010",
+        "score": 5
+      },
+      {
+        "assignment": "011011",
+        "score": 4
+      },
+      {
+        "assignment": "011100",
+        "score": 7
+      },
+      {
+        "assignment": "011101",
+        "score": 6
+      },
+      {
+        "assignment": "011110",
+        "score": 6
+      },
+      {
+        "assignment": "011111",
+        "score": 3
+      },
+      {
+        "assignment": "100000",
+        "score": 3
+      },
+      {
+        "assignment": "100001",
+        "score": 6
+      },
+      {
+        "assignment": "100010",
+        "score": 6
+      },
+      {
+        "assignment": "100011",
+        "score": 7
+      },
+      {
+        "assignment": "100100",
+        "score": 4
+      },
+      {
+        "assignment": "100101",
+        "score": 5
+      },
+      {
+        "assignment": "100110",
+        "score": 5
+      },
+      {
+        "assignment": "100111",
+        "score": 4
+      },
+      {
+        "assignment": "101000",
+        "score": 4
+      },
+      {
+        "assignment": "101001",
+        "score": 5
+      },
+      {
+        "assignment": "101010",
+        "score": 7
+      },
+      {
+        "assignment": "101011",
+        "score": 6
+      },
+      {
+        "assignment": "101100",
+        "score": 5
+      },
+      {
+        "assignment": "101101",
+        "score": 4
+      },
+      {
+        "assignment": "101110",
+        "score": 6
+      },
+      {
+        "assignment": "101111",
+        "score": 3
+      },
+      {
+        "assignment": "110000",
+        "score": 4
+      },
+      {
+        "assignment": "110001",
+        "score": 7
+      },
+      {
+        "assignment": "110010",
+        "score": 5
+      },
+      {
+        "assignment": "110011",
+        "score": 6
+      },
+      {
+        "assignment": "110100",
+        "score": 5
+      },
+      {
+        "assignment": "110101",
+        "score": 6
+      },
+      {
+        "assignment": "110110",
+        "score": 4
+      },
+      {
+        "assignment": "110111",
+        "score": 3
+      },
+      {
+        "assignment": "111000",
+        "score": 3
+      },
+      {
+        "assignment": "111001",
+        "score": 4
+      },
+      {
+        "assignment": "111010",
+        "score": 4
+      },
+      {
+        "assignment": "111011",
+        "score": 3
+      },
+      {
+        "assignment": "111100",
+        "score": 4
+      },
+      {
+        "assignment": "111101",
+        "score": 3
+      },
+      {
+        "assignment": "111110",
+        "score": 3
+      },
+      {
+        "assignment": "111111",
+        "score": 0
+      }
+    ]
+  }
+}

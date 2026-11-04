@@ -1,0 +1,7 @@
+network,n_nodes,n_edges,assignments_checked,optimal_score,n_optimal_assignments,random_expected_score
+single_edge,2,1,4,1,2,0.5
+line,3,2,8,2,2,1.0
+triangle,3,3,8,2,6,1.5
+star,5,4,32,4,2,2.0
+two_triangles,5,6,32,4,18,3.0
+prism,6,9,64,7,6,4.5
