@@ -64,3 +64,13 @@ fixed. Runtimes depend on the machine.
 | `reference_results/` | Exact best scores and all optimal assignments |
 | `results/runs.json` | One record per training run: scores, evaluations, runtime, starting and final settings, history |
 | `tests/` | Validation tests |
+
+## Bitstring convention
+
+Every assignment string in this project is written with **node 0 first**:
+character i is the channel of node i. For example, `"100"` means node 0 is on
+channel 1 and nodes 1 and 2 are on channel 0. `reference_results/` uses this order.
+
+Qiskit writes measured bitstrings the other way round (node 0 last). Convert
+them with `from_qiskit_bitstring()` before comparing with the reference files,
+and use `to_assignment()` to turn an assignment number into a string.

@@ -91,3 +91,16 @@ def expected_score(circuit: QuantumCircuit, values: NDArray[np.float64]) -> floa
     """Average score of the circuit, [1] Eq. (9)."""
     probs = Statevector(circuit).probabilities()
     return float(probs @ values)
+
+
+def to_assignment(index: int, n: int) -> str:
+    """Turn an assignment number into the project's standard string:
+    character i is the channel of node i (node 0 first, read left to right).
+    This matches classical_reference.py and reference_results/."""
+    return "".join(str((index >> i) & 1) for i in range(n))
+
+
+def from_qiskit_bitstring(bitstring: str) -> str:
+    """Qiskit writes node 0 as the LAST character. Reverse it so that
+    character i is node i, the project's standard order."""
+    return bitstring[::-1]
